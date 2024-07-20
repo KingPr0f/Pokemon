@@ -4,7 +4,7 @@ import {GiHamburgerMenu} from 'react-icons/gi'
 import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
-  const location = useLocation()
+ const location = useLocation()
   const navigationRoutes = [
     {
       name: "Search",
@@ -29,11 +29,11 @@ function Navbar() {
   ];
 
   useEffect(() => {
-    const index = navigationRoutes.findIndex(({route}) =>
+    const index = navigationRoutes.findIndex(({route}) => 
       location.pathname.includes(route)
   );
   ul(index);
-  })
+  }, [location.pathname, navigationRoutes])
 
 function ul(index:number) {
   const underlines = document.querySelectorAll<HTMLElement>('.underline')
